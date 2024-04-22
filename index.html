@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Advice generator app</title>
+
+  <!-- Style Links -->
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+</head>
+<body>
+<main>
+  <div class="main-container">
+    <span>Adive #117</span>
+    <p><q  id="advice"></q></p>
+    <picture>
+      <source media="(max-width:400px)" srcset="./assets/img/pattern-divider-mobile.svg">
+      <img src="./assets/img/pattern-divider-desktop.svg" width="100%" alt="pattern-divider.svg">
+    </picture>
+    <button class="dice-btn">
+      <img src="./assets/img/icon-dice.svg" alt="icon-dice.svg">
+    </button>
+  </div>
+</main>
+<script>
+  let btn=document.querySelector('.dice-btn');
+  let advice=document.querySelector("#advice")
+
+  apiCall();
+
+  btn.addEventListener('click',function(){
+    apiCall();
+  })
+
+  function apiCall(){
+  fetch("https://api.adviceslip.com/advice")
+    .then(response => {
+      if(!response.ok){
+        throw new Error('Network response was not ok')
+      }
+      return response.json();
+    })
+    .then(data => {
+      advice.innerHTML=data.slip.advice;
+    })
+    .then(error => {
+      if(error){
+      console.error('There was a problem with the fetch operation :',error);
+      }
+    })
+  }
+
+
+</script>
+ 
+</body>
+</html>

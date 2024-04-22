@@ -1,0 +1,80 @@
+/* Goggle Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
+
+/* Colors */
+:root{
+--color-LightCyan: hsl(193, 38%, 86%);
+--color-NeonGreen: hsl(150, 100%, 66%);
+--color-GrayishBlue: hsl(217, 19%, 38%);
+--color-DarkGrayishBlue: hsl(217, 19%, 24%);
+--color-DarkBlue: hsl(218, 23%, 16%);
+--color-White:#FFFFFF;
+}
+
+/* Global Style */
+
+*,::before,::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Manrope", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    background-color: var(--color-DarkBlue);
+}
+
+.main-container{
+    max-width: 450px;
+    text-align: center;
+    background-color: var(--color-DarkGrayishBlue);
+    color: var(--color-White);
+    border-radius: 12px;
+    padding: 15px 20px 50px;
+    position: relative;
+}
+
+.main-container span{
+    color:var(--color-NeonGreen)
+}
+
+.main-container p{
+    margin: 18px 14px;
+}
+
+.main-container p q{
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.dice-btn{
+    all: unset;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-NeonGreen);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dice-btn:hover{
+    box-shadow: rgba(82, 255, 168,0.5) 0px 1px 19px 4px;
+}
+
+@media (max-width:500px){
+    .main-container{
+        margin: 0 20px;
+        padding: 15px 15px 50px;
+    }
+
+}
